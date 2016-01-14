@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" name="btnAppend" value="Append Child" />
+	<input type="button" name="btnCopy" value="Copy from template" />
+	<div id="content"></div>
+	<div id="template" style="display:none;">Copy Element from Template</div>
+
+</body>
+<script type="text/javascript">
+
+function appendH1(){
+	var content = document.getElementById('content');
+	var newElement = document.createElement('h1');
+	newElement.innerHTML = 'Create Element Example';
+
+	content.appendChild(newElement);
+}
+
+function copyElement(){
+	var content = document.getElementById('content');
+	var template = document.getElementById('template');
+
+	var newNode = template.cloneNode(true);
+	newNode.style.display = 'block';
+
+	console.log(newNode);
+
+	content.appendChild(newNode);
+}
+
+document.getElementsByName('btnAppend')[0].onclick = function(){
+	appendH1();
+}
+
+document.getElementsByName('btnCopy')[0].onclick = function(){
+	copyElement();
+}
+	
+</script>
+</html>

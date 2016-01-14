@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form>
+		<div>
+			<label>X:</label>
+			<input type="number" name="x" />
+		</div>
+		<div>
+			<label>Y:</label>
+			<input type="number" name="y" />
+		</div>
+		<div>
+			<label>Result is </label>
+			<span id="result"></span>
+		</div>
+		<input type="button" id="btnAdd" value=" Add "  />
+	</form>
+</body>
+<script type="text/javascript">
+		var btn = document.getElementById('btnAdd');
+		btn.onclick = function(){
+			this.disabled = true;
+			var x = document.getElementsByName('x')[0].value;
+			var y = document.getElementsByName('y')[0].value;
+
+			console.log(x, y);
+			document.getElementById('result').innerHTML = parseFloat(x) + parseFloat(y);
+			this.disabled = false;
+		}
+</script>
+</html>

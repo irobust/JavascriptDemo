@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.Mainmenu{
+			background-color: darkgray;
+			padding: 20px;
+			float: left;
+			cursor: pointer;
+		}
+
+		.Submenu{
+			background-color: gray;
+			float: left;
+			display: none;
+			padding: 10px;
+		}
+
+		.Submenu ul{
+			list-style-type: none;
+			padding-left: 0px;
+		}
+
+		.showSubmenu{
+			display: block;
+			opacity: 0.1;
+		}
+
+		.active{
+			background-color: #eee;
+		}
+
+	</style>
+
+</head>
+<body>
+	<div class="Mainmenu">Menu 1</div>
+	<div class="Submenu">
+		<ul>
+			<li id="item1">Item 1</li>
+			<li id="item2">Item 2</li>
+			<li id="item3">Item 3</li>
+			<li id="item4">Item 4</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+	var mainmenu = document.getElementsByClassName('Mainmenu')[0];
+	var submenu = document.getElementsByClassName('Submenu')[0];
+	mainmenu.onclick = function(){
+		submenu.classList.add('showSubmenu');
+		submenu.style.opacity = 0.1;
+		var interval = setInterval(function(){
+			submenu.style.opacity = parseFloat(submenu.style.opacity) + 0.01;
+			if(submenu.style.opacity == 1){
+				clearInterval(interval);
+			}
+		}, 10);
+	}
+
+	var menuItem = document.getElementById(location.hash.substring(1));
+	menuItem.classList.add('active');
+	</script>
+</body>
+</html>

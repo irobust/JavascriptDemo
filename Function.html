@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	function myFunc(){
+		console.log('Call myFunc');
+	}
+
+	var doSomething = function(){
+		console.log('Do Something');
+	}
+
+	function doWithParam(a, b){
+		console.log(arguments);
+		var a = a || 99;  // First
+		b = (b)? b : 50;  // Second
+		console.log('Send Parameter ' + b);
+	}
+
+	function sum(){
+		var sum = 0;
+		for(index in arguments){
+			sum += parseInt(arguments[index]);
+		}
+		return sum;
+	}
+
+	var doSomething2 = doSomething;
+
+	myFunc();
+	doSomething();
+	doSomething2();
+	doWithParam();
+	var amount = sum(1,2,3,4,5,6,7,8);
+	console.log(amount);
+
+</script>
+</head>
+<body>
+	
+</body>
+</html>

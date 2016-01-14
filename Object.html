@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript">
+	var obj = {};
+	// var param = param || {};
+	obj.x = 10;
+	obj.y = 20;
+
+	console.log(obj.x);
+	console.log(obj.y);
+
+	console.log(obj['x']);
+	console.log(obj['y']);
+
+	for(i in obj){
+		console.log(i, obj[i]);
+	}
+
+	var arrObj = [{ a: 20,
+					b: 30
+				 }]
+	arrObj.push({a:10});
+	console.log(arrObj);
+
+	var ObjObj = {
+		'first' : {a:30, b:40}
+	}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

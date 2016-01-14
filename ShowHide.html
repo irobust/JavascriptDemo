@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="greenBox"></div>
+	<div class="greenBox"></div>
+	<div class="greenBox"></div>
+	<button type="button" id="btnToggle"> Hide </button>
+</body>
+
+<script type="text/javascript">
+	document.getElementById('btnToggle').onclick = function(){
+		var div = document.getElementsByTagName('div');
+		for(i in div){
+			var target = div[i];
+			if(!target.style[0] || target.style.display == 'block' ){
+				this.innerText = ' Show ';
+				target.style.display = 'none';
+
+				// Remove Class
+				var className = target.getAttribute('class');
+				var lastSpacePosition = className.indexOf(' ');
+				if(lastSpacePosition !== -1){
+					className = className.substring(0, lastSpacePosition);
+				}
+				target.setAttribute('class', className);
+			}else{
+				this.innerText = ' Hide ';
+				target.style.display = 'block';
+
+				// Add Class
+				var className = target.getAttribute('class') + ' newClass';
+				target.setAttribute('class', className);
+			}
+		}
+	}
+</script>
+</html>

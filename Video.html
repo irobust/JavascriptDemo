@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.fullscreen{
+			position: fixed;
+		    top: 0;
+		    left: 0;
+		    min-width: 100%;
+		    min-height: 100%;
+		    width: auto;
+		    height: auto;
+		}
+	</style>
+</head>
+<body>
+	<button>Play</button>
+	<!-- <video loop autoplay controls></video> -->
+	<video poster="images/logo.gif" width="250">
+		<source src="videos/explore_promo.mp4" />
+		<source src="videos/explore_promo.ogv" />
+		<span>Please update your browser!</span>
+	</video>
+	<script>
+	var btnPlay = document.getElementsByTagName('button')[0];
+	var video = document.getElementsByTagName('video')[0];
+	btnPlay.onclick = function(){
+		if(video.paused)
+			video.play();
+		else
+			video.pause();
+	}
+
+	video.onclick = function(){
+		// this.play();
+		// if(video.classList.contains('fullscreen'))
+		// 	video.classList.remove('fullscreen');
+		// else
+		// 	video.classList.add('fullscreen');
+	}
+
+	video.onplay = function(){
+		this.classList.add('fullscreen');
+	}
+
+	video.onended = function(){
+		this.classList.remove('fullscreen');
+	}
+	</script>
+</body>
+</html>

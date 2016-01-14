@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<script type="text/javascript">
+		// window.location
+		// window.location.href = "http://google.co.th";
+		// location.href = "http://www.google.co.th";
+		// location.hash 
+		// location.search
+	</script>
+</head>
+<body>
+	<h1>Document Object Model(DOM)</h1>
+
+	<form action="#">
+		<input type="text" name="x" id="x" value="" />
+	</form>
+	<script type="text/javascript">
+		header = window.document.getElementsByTagName('h1');
+		header[0].innerHTML = "<i>New Title</i>"
+		console.log(header[0]);
+
+		// document.forms[0].children.x.value = "Input x here";
+
+		document.getElementById('x').value = "Input x here";
+	</script>
+</body>
+</html>
