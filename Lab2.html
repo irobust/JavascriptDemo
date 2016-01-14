@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.container {
+			/*width:300px;*/
+		}
+		.container div{
+			width: 100px;
+			height: 100px;
+			float: left;
+		}
+		.white-box {
+			background-color: #fff;
+		}
+		.red-box {
+			background-color: #ff3308;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<p>
+			<input type="number" name="number" /><input type="button" id="btnAdd" value=" Add "  />
+		</p>
+		<div id="divContainer" class="container"></div>
+	</form>
+	<script type="text/javascript">
+		var btn = document.getElementById('btnAdd');
+		btn.onclick = function(){
+			this.disabled = true;
+			var number = document.getElementsByName('number')[0].value;
+			var container = document.getElementById('divContainer');
+			container.innerHTML = "";
+			container.style.width = (parseInt(number) * 100) + 'px';
+
+			var time = Math.pow(parseInt(number), 2);
+			for(var i=0; i<time; i++){
+				
+				var newBox = document.createElement('div');
+				container.appendChild(newBox);
+
+				if (i % 2 == 0) {
+		            newBox.classList.add('red-box');
+		        }
+		        else {
+	            	newBox.classList.add('white-box');
+	            }
+
+			}
+			this.disabled = false;
+		}
+	</script>
+</body>
+</html>
